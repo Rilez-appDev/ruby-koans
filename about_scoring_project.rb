@@ -34,8 +34,9 @@ def score(dice)
   #First we need to check if there is 3 of a number
   #Dice is an array with 5 numbers 
   tallyArray ={ 1 => 0, 2=>0 ,3=>0, 4=>0,5=>0,6=>0}
-  tallyArray = dice.tally
+  tallyArray = dice.tally 
   score=0
+
   # now the array will be order 1,2,3,4,5 and count the number of each instance
   tallyArray.each do |key,value|
     if key == 1 

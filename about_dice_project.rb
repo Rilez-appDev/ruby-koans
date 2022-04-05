@@ -4,8 +4,8 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 #
 class DiceSet
   attr_reader :values
-  def roll(x)
-    @values= Array.new(x) { rand(1..6) }
+  def roll(number_of_rolls)
+    @values= Array.new(number_of_rolls) { rand(1..6) }
   end
 end
 
