@@ -31,6 +31,45 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   # You need to write this method
+  #First we need to check if there is 3 of a number
+  #Dice is an array with 5 numbers 
+  tallyArray ={ 1 => 0, 2=>0 ,3=>0, 4=>0,5=>0,6=>0}
+  tallyArray = dice.tally
+  score=0
+  # now the array will be order 1,2,3,4,5 and count the number of each instance
+  tallyArray.each do |key,value|
+    if key == 1 
+      if value ==3
+      score += 1000
+      elsif value == 4
+      score += 1100
+      elsif value == 5
+      score += 1200
+      elsif value == 1 
+      score +=100
+      elsif value == 2
+      score +=200
+      else
+      end 
+    elsif key == 2 or key ==3 or key ==4 or key ==6
+      if value >= 3
+        score+= key*100
+      end
+    elsif key == 5
+      if value == 3
+        score+= key*100
+      elsif value == 1 
+        score+= key*value*10
+      elsif value == 2
+        score+= key*value*10
+      elsif value == (4 or 5 or 6)
+        score+= key*(value-3)*10 + key*100
+      end
+    end
+  end
+  #Need to create a for loop
+  return score
+
 end
 
 class AboutScoringProject < Neo::Koan
